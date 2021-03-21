@@ -1,0 +1,46 @@
+The long data type can store whole numbers from
+-9223372036854775808 to 9223372036854775807. 
+
+This is used when int is not large enough to store the value. 
+Note that you should end the value with an "L":
+
+
+long myNum = 15000000000L;
+
+
+if last bit is zero, then it's an even number => return false
+
+convert binary to string and check with regex (0|(10|11(01)*(00|1))(01*0(01)*(00|1))*1)* .
+this will answer the question if the number is a multiple of 5. 
+if it is, return false.
+This regex also checks whether the decimal number ends in 0, so it is a double check 
+that we do for numbers that are even and end in 0, but it's ok since this will save 
+us a lot of iterations if the number is large.
+
+
+
+We now can exclude numbers that end in 5 since all these numbers are multiples of 5
+https://www.quora.com/How-many-multiples-of-3-are-there-between-5-and-200
+This saves us floor( sqrt(number)/5) iterations.
+For example if we wanted to check whether 12349 is a a prime, we would need
+111/5 = 22 less iterations.
+But if we wanted to check whether 9223372036854775 is a prime we would need 
+96038388/5 = 19207677 less iterations.
+
+i=3							i = 3	
+z = sqrt(number)
+while (i<z)
+	if (number%i == 0)
+		return false
+		break;
+	i+=4					i = 7
+	if (number%i == 0)
+		return false
+		break;
+	i+=2					i = 9
+	if (number%i == 0)
+		return false
+		break;
+	i+=2					i = 11
+
+

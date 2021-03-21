@@ -1,0 +1,25 @@
+ALL OF THE BELOW were tested only on Linux with python version 3.9 installed. 
+
+The setup.py file can be used to install the api globally 
+To do so, go to the folder where the setup.py is and execute the following command:
+
+`python setup.py bdist_wheel`
+
+Among others, this will create a dist folder containing the required .whl file.
+Having now this .whl file, executing the following command will install the api globally.
+
+`pip install /path/to/wheelfile.whl`
+
+
+The file api_is_prime/__init__.py file contains the code that will be executed when we
+import the api. To be more clear:
+
+The above procedure made the "api_is_prime" module globally available.
+To import we simply need to write:
+`import api_is_prime`
+
+When the above command is executed, the code that resides into the file 
+"api_is_prime/__init__.py" will be executed.
+
+
+To uninstall just enter the command `pip uninstall api_is_prime` as with any module.

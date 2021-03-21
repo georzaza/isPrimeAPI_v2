@@ -1,0 +1,35 @@
+commom threads and daemon threads.
+programs waits for common threads to end before it shuts down.
+However, daemon threads will get killed when the program exits.
+If they are killed forcefully, then the rest of/part of the code they were executing will never execute.
+
+threading._shutdown()  -->  walks through all of the running threads and calls .join() on every one that does not have the daemon flag set.
+
+CREATE A DAEMON THREAD
+x = threading.Thread(target=thread_function, args=(1,), daemon=True)
+
+
+Some possible structure of the code would be:
+
+
+# ask user for mcast group through args. If None, then use some default.
+
+# start a thread of the api after getting the mcast groups to join.
+# the thread will register as a service and from then and on forward 
+# it should be able to handle any request making use of the 
+
+
+# somehow, when a new request gets to the api, 
+# the api should tell this app if this is a request to calc a prime.
+# If yes, then
+#   this app should start a new thread for listening to new connections
+#   UNLESS it has already started 3 threads.
+
+# The api should handle all the communication needed 
+# example: it should send an ack if and when this app receives a prime-calc
+# request. 
+#
+# This app is responsible for calculating if the number is prime.
+#
+# When and after this app calculates whether the number is prime, 
+# it must use sendReply to the api with the response.

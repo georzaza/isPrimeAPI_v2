@@ -1,0 +1,13 @@
+0.  This how-to assumes that the application folder is located in your
+    home directory !!! If not, change the command appended to your .bashrc file.
+
+1.  open the file '.bashrc' with an editor.    `nano ~/.bashrc`
+    If you dont use bash but eg. zsh, then the name of the file will be .zshrc
+
+3.  add this command at the end of the file 
+    alias install_api="echo 'Trying to run setup.py located in Desktop/distr/isPrimeAPI' && echo ''  && python ~/Desktop/distr/isPrimeAPI/setup.py bdist_wheel  && echo '' && echo '' && echo 'Trying to install the library globally now' && echo '' && pip install ~/Desktop/distr/isPrimeAPI/dist/api_is_prime-0.1.0-py3-none-any.whl "
+
+4.  restart your terminal.
+
+5.  Run the command `install_api`. If it's not working, see step 2 subsection.
+
